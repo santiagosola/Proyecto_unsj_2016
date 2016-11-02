@@ -6,6 +6,7 @@ using System.Web.Services;
 using System.Data.SqlClient;
 using System.Web.Script.Serialization;//para usar serializable y convertir datatable en json
 using System.Data;
+using System.Web.Script.Services;
 
 namespace Proyecto_2016
 {
@@ -71,7 +72,7 @@ namespace Proyecto_2016
             sql_conexion.Close();
          
         }
-
+        
         //metodo privado del webservice que se usa para tomar los datos de la db y convertirlos a json para ser enviados al frontend
 
         private static object DataTableToJSON(DataTable table)
