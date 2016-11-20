@@ -23,7 +23,10 @@ namespace Proyecto_2016
     public class WebServiceProyecto : System.Web.Services.WebService
     {
         //cadena de conexion db
-        string cad_conexion = "Data Source=(local); Initial Catalog= BD_prueba; integrated Security= True";
+        //string cad_conexion = "Data Source=(local); Initial Catalog= BD_prueba; integrated Security= True";//CONEXION GENERICA
+        // SE CREA UN USUARIO CON PERMISOS EN LA DB CONTROL-STOCK EL USUARIO ES stock y la pass es 12345 
+        string cad_conexion = "Data Source=(local);User ID=stock; Password=12345; Initial Catalog= Control_Stock; integrated Security= True";
+
         SqlConnection sql_conexion = null;
         //data table donde se cargaran los datos de la db
         DataTable dt = new DataTable();
@@ -93,6 +96,34 @@ namespace Proyecto_2016
 
             return serializer.Serialize(list);
         }
+
+        [WebMethod]
+
+        public int loguin(string u, string p)
+        {
+
+            using (sql_conexion = new SqlConnection(cad_conexion))
+            {
+                SqlCommand cmd = new SqlCommand("loguin", sql_conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@us", u);//parametros
+                cmd.Parameters.AddWithValue("@pa", p);//parametros
+
+                SqlParameter ValorRetorno = new SqlParameter("@Comprobacion", DbType.Int32);
+
+                ValorRetorno.Direction = ParameterDirection.ReturnValue;
+                cmd.Parameters.Add(ValorRetorno);
+                sql_conexion.Open();
+                cmd.ExecuteNonQuery();
+
+                int respuesta = Int32.Parse(cmd.Parameters["@Comprobacion"].Value.ToString());
+                conexionclose();
+
+                return (respuesta);
+            }
+        }
+
 
 
     }

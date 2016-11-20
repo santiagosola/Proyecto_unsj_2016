@@ -15,18 +15,24 @@
 
 
 <body>
+     <form id="form1" runat="server">
      <div class="body"></div>
 		<div class="grad"></div>
 		<div class="header">
 			<div>Soldari<span>Stock</span></div>
 		</div>
-		<br>
+		
 		<div class="login">
-				<input type="text" placeholder="Usuario" name="user"/><br/>
-				<input type="password" placeholder="Contraseña" name="password"/><br/>
-				<input type="button" value="Iniciar Sesión"/>
+				<input id="usuario" type="text" placeholder="Usuario" name="user"  runat="server" /><br/>
+				<input id="contra" type="password" placeholder="Contraseña" name="password"  runat="server"/><br/>
+				<input id="bt_inicioc" type="button" runat="server" onServerClick="bt_inicio_Click" value="Iniciar Sesión"  />
+            <!--   <asp:Button runat="server" ID="bt_inicio" type="button"  Text="Button" onclick="bt_inicio_Click"  />   -->
+           
+
 		</div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+     </form>
 
 </body>
 
