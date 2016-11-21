@@ -26,7 +26,7 @@
 				<input id="usuario" type="text" placeholder="Usuario" name="user"  runat="server" /><br/>
 				<input id="contra" type="password" placeholder="Contraseña" name="password"  runat="server"/><br/>
 				<input id="bt_inicioc" type="button" runat="server" onServerClick="bt_inicio_Click" value="Iniciar Sesión"  />
-            <!--   <asp:Button runat="server" ID="bt_inicio" type="button"  Text="Button" onclick="bt_inicio_Click"  />   -->
+          
            
 
 		</div>

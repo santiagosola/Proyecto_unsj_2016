@@ -13,6 +13,8 @@
 
         ENTRO AL SITIO</div>
         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <asp:GridView ID="GridView1" runat="server" Height="205px" Width="459px">
+        </asp:GridView>
     </form>
 </body>
 </html>

@@ -124,6 +124,31 @@ namespace Proyecto_2016
                 return (respuesta);
             }
         }
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+
+        public object lista_productos_negocio(int id_negocio)
+        {
+
+                DataTable dt = new DataTable();
+                   
+                conexionopen();
+                 {
+                        SqlCommand cmd = new SqlCommand("listar_productos_de_un_negocio", sql_conexion);
+
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@id_neg", id_negocio);//parametros
+                        //cmd.Parameters.AddWithValue("@id_rub", id_rubro);//parametros
+
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        da.Fill(dt);
+                 }
+                conexionclose();
+            return (DataTableToJSON(dt));
+
+        }
+
 
 
 
