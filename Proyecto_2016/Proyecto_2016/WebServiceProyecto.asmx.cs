@@ -10,6 +10,7 @@ using System.Web.Script.Services;
 
 namespace Proyecto_2016
 {
+    
     /// <summary>
     /// Summary description for WebServiceProyecto
     /// </summary>
@@ -19,7 +20,7 @@ namespace Proyecto_2016
     [System.ComponentModel.ToolboxItem(false)]
     //To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     [System.Web.Script.Services.ScriptService]
-
+    
     public class WebServiceProyecto : System.Web.Services.WebService
     {
         //cadena de conexion db

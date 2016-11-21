@@ -10,6 +10,7 @@ using System.Web.UI.HtmlControls;
 
 namespace Proyecto_2016.FrontEnd
 {
+    
     public partial class WebForm1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -22,6 +23,9 @@ namespace Proyecto_2016.FrontEnd
             WebServiceProyecto log = new WebServiceProyecto();
             string u = Request.Form["usuario"];//TOMA EL DATO DEL HTML INPUT Y LO GUARDA EN UNA VARIABLE.
             string c = Request.Form["contra"];
+            Session["Usuario"] = u;
+            
+            
 
             int result = log.loguin(u,c);// LLAMADA AL WEB SERVICE LOGUIN
 
